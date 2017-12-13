@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cubes.gltf" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 1, 1 )
+
+[node name="Game" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+gravity_scale = 0.0
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00399566, 0.0851331, -0.0112996 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 0.17
+bounce = 0.15
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28467, 0, 0 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.80097, 0.088114, 0.0970068 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264922, 0.088114, 8.01377 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.251726, 0.088114, -6.40787 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16899, -3.69237, 0.109469 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="Scene Root" parent="StaticBody" instance=ExtResource( 2 )]
+
+
